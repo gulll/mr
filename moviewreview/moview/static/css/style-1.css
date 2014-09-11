@@ -1,0 +1,49 @@
+<style type="text/css">
+#container
+{
+width:900px;
+margin:0 auto;
+overflow:auto;
+}
+#header
+{
+height:90px;
+}
+#nav
+{
+overflow:auto;
+}
+#nav ul
+{
+list-style:none;
+height:30px;
+padding:0px;
+margin:0px;
+}
+#nav ul li
+{
+float:left;
+margin:10px;
+}
+#main
+{
+overflow:auto;
+margin-top:3px;
+}
+#main_left
+{
+float:left;
+width:600px;
+min-height:400px;
+}
+#main_right
+{
+float:left;
+width:300px;
+min-height:400px;
+}
+#footer
+{
+height:40px;
+}
+</style>

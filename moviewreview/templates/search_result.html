@@ -1,0 +1,7 @@
+{%if movies.count > 0 %}
+  {%for movie in movies %}
+      <li><a href="/movies/get/{{ movie.id }}">{{ movie.title }}</a></li>
+  {% endfor %}
+{% else %}
+  <li> no matches !</li>
+{% endif %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block rightbar %}
+{% csrf_token %} 
+     <input type="text" id="search" name="search" />
+    <!-- <a class="btnSearch" href="/movies/search/">Serach</a>-->
+      <button class="btnSearch">Search</button>  
+    <ul id="search-results">
+     
+     </ul>
+{% endblock %}
+
+{% block content %}
+ 
+  {% if form.errors %}
+   <p class="error">Sorry,thats not valid username or password</p>
+  {% endif %}
+  
+  <form action="/accounts/auth/" method="post">{% csrf_token %}
+    <label for="username">User Name:</label>
+    <input type="text" name="username" value="" id="username">
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="" id="password">
+    
+    <input type="submit" value="login" />
+  </form>
+{% endblock %}

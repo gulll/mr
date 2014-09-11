@@ -1,0 +1,114 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--<link  href="{% static 'css/style.css' %}"
+         rel="stylesheet" type="text/css" media="screen" /> -->
+<script src="{% static "js/jquery-2.0.0.min.js" %}"></script>
+<script src="{% static "js/ajax.js" %}"></script>
+
+
+<style>
+#page {
+	width: 980px;
+    background: silver; 
+	margin: 0 auto;
+}
+#header {
+ position:relative;
+ background-color: #666;
+ border-bottom: 1px solid #333;
+ height: 60px;
+ text-align: center;
+}
+#sidebar {
+ float: left;
+ background-color: red;
+ width: 160px;
+ margin-left: 10px;
+ padding-top: 1em;
+}
+#content {
+	width:500px;
+  padding-top: 1em;
+  float:left;
+  margin-left: 10px;
+  background-color: green;
+  min-height:1000px;
+  text-align: center;
+}
+#rightbar {
+	width :200px;
+	padding-top: 1 em;
+	float:left;
+	margin-left: 10px;
+    background-color: yellow;
+	min-height:500px;
+	text-align: center;
+}
+#footer {
+ position:relative;
+ clear: both;
+ background-color: #ccc;
+ padding-bottom: 1em;
+ border-top: 1px solid #333;
+ padding-left: 200px;
+ text-align: center;
+}
+</style>
+
+
+<title>{% block title %}Codechef Entertainment{% endblock %}</title>
+</head>
+<body>
+<div id="page">
+<div id="header">
+<ul>    <a href="/movies/home">Home</a>
+        <a href="/movies/all">Movies</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <a href="/admin/">Admin</a>
+</ul> 
+   {% if  result  %}
+    {{ result }} <a href="/accounts/logout/"> Logout</a> 
+ {% else %}
+  <p>You are not loggedin.Login with <a href="/movies/login/fb">Facebook</a>
+         <a href="/movies/login/tw">Twitter</a> </p> 
+{% endif %}
+     
+</div>
+
+<div id="sidebar">
+  {% block sidebar %}
+  <h2 class="sidebar">MENU</h2>
+  
+  {% endblock %}
+</div>
+
+<div id="content">
+  {% block content %}
+   
+  {% endblock %}
+</div>
+
+<div id="rightbar">
+   <h4>Search</h4>
+     
+  {% block rightbar %}
+   
+  {% endblock %}
+</div>
+
+<div id="footer">
+   <a href="https://apps.facebook.com/codechef/">Facebook</a> 
+   &nbsp;&nbsp;&nbsp;
+   <a href="https://twitter.com/codechef/">Twitter</a>
+</div> 
+</div>
+
+</body>
+</html>

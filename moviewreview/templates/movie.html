@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block sidebar %}
+
+   <a href="/movies/all">Movies</a>
+
+{% endblock %}
+{% block rightbar %}
+{% csrf_token %} 
+     <input type="text" id="search" name="search" />
+    <!-- <a class="btnSearch" href="/movies/search/">Serach</a>-->
+      <button class="btnSearch">Search</button>  
+
+     <ul id="search-results">
+     
+     </ul>
+
+{% endblock %}
+{% block content %}
+<div>
+
+<h1>{{ movie.title }}</h1>
+<h4>Released on {{ movie.rel_date }}</h4>
+<h4>Directed By {{ movie.director }}</h4>
+<h4>Rating:{{ movie.rating }}</h4>
+<img src= "{{ movie.poster.url }}"  alt="My image"/>
+<p>{{ movie.body }}</p>
+
+<h3>User Review</h3>
+{% for r in movie.review_set.all %}
+<p>{{r.user}}::{{r.post_date}}::{{r.rating}}</p>
+<p>{{r.body}}</p>
+{% endfor %}
+{% if  result  %}
+<p><a href="/movies/add_review/{{movie.id}}">Review Movie</a></p>
+ {% else %}
+ <p><a href="/movies/get/{{movie.id}}">Review Movie</a></p>
+  <p>Please Login with above social Link to Review.</p> 
+{% endif %}
+
+</div>
+{% endblock %}
