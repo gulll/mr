@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block rightbar %}
+{% csrf_token %} 
+     <input type="text" id="search" name="search" />
+    <!-- <a class="btnSearch" href="/movies/search/">Serach</a>-->
+      <button class="btnSearch">Search</button>  
+    <ul id="search-results">
+     
+     </ul>
+{% endblock %}
+
+{% block content %}
+
+<h1>New Released</h1>
+{% for movie in movies %}
+<h2><a href="/movies/get/{{ movie.id }}/">{{ movie.title }}</a></h2>
+<img src= "{{ movie.poster.url }}"  alt="My image"/>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block rightbar %}
+{% csrf_token %} 
+     <input type="text" id="search" name="search" />
+    <!-- <a class="btnSearch" href="/movies/search/">Serach</a>-->
+      <button class="btnSearch">Search</button>  
+    <ul id="search-results">
+     
+     </ul>
+{% endblock %}
+
+{% block content %}
+<form action="/movies/add_review/{{movie.id}}/" method="post">{% csrf_token %}
+<ul>
+{{form.as_ul}}
+</ul>
+
+<input type="submit" name="submit" value="post_review">
+</form>
+<form action="/movies/get/{{movie.id}}/" >
+<input type="submit" name="submit1" value="Cancel">
+</form>
+
+{% endblock %}
